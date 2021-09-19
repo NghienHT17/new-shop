@@ -58,7 +58,10 @@ public class User {
 		this.active = 1;
 		this.role = role;
 	}
-	
+
+	public User(String role) {
+		this.role = role;
+	}
 
 	@Override
 	public String toString() {
