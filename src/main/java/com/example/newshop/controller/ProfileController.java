@@ -5,14 +5,18 @@ import com.example.newshop.model.User;
 import com.example.newshop.service.ProductService;
 import com.example.newshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+@Controller
+@RequestMapping("profile")
 public class ProfileController {
     @Autowired
     private ProductService productService;
@@ -45,7 +49,7 @@ public class ProfileController {
 
     @GetMapping("addToCart/{productId}")
         public ModelAndView addToCart(@PathVariable("productId") String productId,Principal principal){
-            ModelAndView modelAndView = new ModelAndView(("profile/cart-product"));
+            ModelAndView modelAndView = new ModelAndView("profile/cart-product");
             User user = userService.findByEmail(principal.getName());
             long productLongId = Long.parseLong(productId);
             Product product = productService.getProductById(productLongId).get();//lay ra object

@@ -56,16 +56,16 @@ public class DataUserConfig implements ApplicationListener<ContextRefreshedEvent
             userRepository.save(manager);//
 
         }
-        if (userRepository.findByEmail("member@gmail.com") == null) {
-            User member = new User();
-            member.setEmail("member@gmail.com");
-            member.setPassword(passwordEncoder.encode("member123"));
-            member.setUserId(5);
-            member.setFirstName("A");
-            member.setLastName("Lê");
-            member.setActive(1);
-            member.setRole("MEMBER");
-            userRepository.save(member);//nhớ phải save lại ms dc
+        if (userRepository.findByEmail("user@gmail.com") == null) {
+            User user = new User();
+            user.setEmail("userr@gmail.com");
+            user.setPassword(passwordEncoder.encode("user123"));
+            user.setUserId(5);
+            user.setFirstName("A");
+            user.setLastName("Lê");
+            user.setActive(1);
+            user.setRole("USER");
+            userRepository.save(user);//nhớ phải save lại ms dc
 
         }
     }
